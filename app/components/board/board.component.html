@@ -1,0 +1,23 @@
+<div class="board-holder">
+  <h3 *ngIf="turn!==0">Player {{turn}}</h3>
+  <div class="head">
+      <div *ngFor="#column of boardHeader">
+        <button class="btn btn-primary" (click)="dropTurn(column)">
+          {{column}}<br>
+          <i class="glyphicon glyphicon-chevron-down"></i>
+        </button>
+      </div>
+  </div>
+  <div class="board">
+    <div *ngFor="#row of board; #rowId = index">
+      <div *ngFor="#box of row; #columnId = index" class="box">
+        <div class="slot"
+          [ngClass]="{player1: box.player===1, player2: box.player===2}">
+            {{rowId}}:{{columnId}}<br>
+            {{box.player}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
